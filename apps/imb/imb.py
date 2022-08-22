@@ -88,6 +88,7 @@ class IMB_PingPong(IMB_base):
         self.num_tasks = 2
         self.num_cpus_per_task = 1
         self.num_tasks_per_node = 1
+        self.time_limit = '5m'
         self.tags.add('pingpong')
 
     @run_before('sanity')
@@ -115,6 +116,7 @@ which (hopefully) is to fill up nodes one by one. Should use 8 nodes at 256 task
         self.executable_opts = [self.mode.lower(), '-npmin', str(self.num_tasks)]
         self.num_tasks = self.tasks
         self.num_cpus_per_task = 1
+        self.time_limit = '30m'
         self.tags.add(self.mode.lower())
         #TODO: What is the default behaviour if I don't set num_tasks_per_node?
 
